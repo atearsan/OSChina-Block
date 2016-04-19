@@ -1,6 +1,6 @@
 /**
- * 
- * 
+ *
+ *
  * @author  github.com/liuxey
  * @date 2016-04-08
  */
@@ -10,8 +10,8 @@
 // })
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
-	console.log(new Date().getTime());
-	console.log(changeInfo);
+	// console.log(new Date().getTime());
+	// console.log(changeInfo);
 	if (tab.url.indexOf("oschina.net") != -1 && changeInfo.status == "loading") {
 		chrome.tabs.executeScript(tabId, {
 			file: "js/jquery.js",

@@ -1,13 +1,13 @@
 /**
- * 
- * 
+ *
+ *
  * @author  github.com/liuxey
  * @date 2016-04-08
  */
 
 var url = document.location.href;
 var OSC_BLOCK_LIST_NAME = "oscblock";
-
+var OSC_BLOCK_NAMES = "oscblock_names";
 
 if (url.indexOf("my.oschina.net") != -1) {
 	handleHomePage();
@@ -39,8 +39,9 @@ function handleHomePage() {
 			if (("_" + result.join("_") + "_").indexOf("_" + userId + "_") == -1) {
 				operationSpan.append('&nbsp;<a href="javascript:;" id="oscblock_block" _userId="'+userId+'">屏蔽此人</a>');
 				$("#oscblock_block").on("click", function(){
-					if (confirm("用【OSChina Block】屏蔽\""+$("#OSC_Content .Owner .U .Name").html()+"\"？")) {
-						block($(this).attr("_userId"));
+					var username = $("#OSC_Content .Owner .U .Name").html();
+					if (confirm("用【OSChina Block】屏蔽\""+username+"\"？")) {
+						block($(this).attr("_userId"), username);
 					}
 				});
 			} else {
@@ -97,7 +98,7 @@ function handleQuestionList() {
 			}
 		})
 	});
-	
+
 }
 
 function handleTranslate() {
@@ -156,7 +157,10 @@ function handleIndex() {
 			}
 		})
 		handleTweet();
-		setInterval(handleTweet, 1500);
+		// setInterval(handleTweet, 1500);
+		$(".TopTweets").on("DOMNodeInserted", function() {
+			handleTweet();
+		});
 	});
 }
 
@@ -186,13 +190,17 @@ function isBlock(userId, callback) {
 	})
 }
 
-function block(userId) {
-	chrome.storage.sync.get(OSC_BLOCK_LIST_NAME, function(result){
+function block(userId, username) {
+	chrome.storage.sync.get([OSC_BLOCK_LIST_NAME, OSC_BLOCK_NAMES], function(result){
 		result = result[OSC_BLOCK_LIST_NAME] || [];
+		var names = result[OSC_BLOCK_NAMES] || [];
+
 		result.push(userId);
+		names["ID_" + userId] = username;
 
 		chrome.storage.sync.set({
-			"oscblock" : result
+			"oscblock" : result,
+			"oscblock_names" : names
 		}, function(){
 			location.href=location.href;
 		})

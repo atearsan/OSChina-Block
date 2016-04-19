@@ -1,6 +1,9 @@
 # OSChina Block
 
-Block在oschina.net上不像看到的人
+理性隐藏oschina.net上不想看到的人
 
+由于对Chrome Extension机制不是很了解，Block的处理上可能不是很理想，如果有更好的办法，希望能告诉我
 
-> 由于不是很了解Chrome插件机制，block的方式采用修改html方法，所以会有页面顿挫感，如果你有更好的处理办法，请告诉我！
+因为这是第一版，使用过程中难免有各种问题，请移步[Github Issues](https://github.com/liuxey/OSChina-Block/issues)提出
+
+*by liuxey 2016*

@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "OSChina Block",
     "version": "0.1.1",
-    "description": "屏蔽你不想看到的人!",
+    "description": "Block who you don't want to see in oschina.net",
     "icons": {
         "16": "images/icon16.png",
         "48": "images/icon48.png",
