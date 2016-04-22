@@ -25,7 +25,7 @@ if (url.indexOf("my.oschina.net") != -1) {
 	handleQuestionList();
 
 } else if (location.pathname == "/") {
-	handleIndex()
+	handleIndex();
 }
 
 function handleHomePage() {

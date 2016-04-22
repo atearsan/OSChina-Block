@@ -1,6 +1,6 @@
 # OSChina Block
 
-理性隐藏oschina.net上不想看到的人
+隐藏oschina.net上部分会员的留言和评论
 
 由于对Chrome Extension机制不是很了解，Block的处理上可能不是很理想，如果有更好的办法，希望能告诉我
 

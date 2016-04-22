@@ -12,21 +12,21 @@
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
 	// console.log(new Date().getTime());
 	// console.log(changeInfo);
-	if (tab.url.indexOf("oschina.net") != -1 && changeInfo.status == "loading") {
-		chrome.tabs.executeScript(tabId, {
-			file: "js/jquery.js",
-			runAt: "document_start",
-			allFrames: false
-		}, function(){
+	// if (tab.url.indexOf("oschina.net") != -1 && changeInfo.status == "loading") {
+	// 	chrome.tabs.executeScript(tabId, {
+	// 		file: "js/jquery.js",
+	// 		runAt: "document_start",
+	// 		allFrames: false
+	// 	}, function(){
 
-		});
+	// 	});
 
-		chrome.tabs.executeScript(tabId, {
-			file: "js/block.js",
-			runAt: "document_end",
-			allFrames: false
-		}, function(){
+	// 	chrome.tabs.executeScript(tabId, {
+	// 		file: "js/oscb.js",
+	// 		runAt: "document_end",
+	// 		allFrames: false
+	// 	}, function(){
 
-		})
+	// 	})
 	}
 })
