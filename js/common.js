@@ -124,5 +124,3 @@ function isOn(callback) {
 		callback(!!flag);
 	})
 }
-
-$("#version-span").text(OSCB_VERSION);

@@ -12,12 +12,12 @@ $(function(){
 			var flag = result[OSCB_STORAGE_KEY_SWITCH];
 
 			if (flag) {
-				$('#btn-on').removeClass('btn-default').addClass('btn-info');
-				$('#btn-off').removeClass('btn-info').addClass('btn-default');
+				$('#btn-on').removeClass('btn-default').addClass('btn-success');
+				$('#btn-off').removeClass('btn-success').addClass('btn-default');
 
 			} else {
-				$('#btn-off').removeClass('btn-default').addClass('btn-info');
-				$('#btn-on').removeClass('btn-info').addClass('btn-default');
+				$('#btn-off').removeClass('btn-default').addClass('btn-success');
+				$('#btn-on').removeClass('btn-success').addClass('btn-default');
 			}
 		})
 	}
@@ -44,5 +44,6 @@ $(function(){
 		reloadStatus();
 	})
 	
+	$("#version-span").text(OSCB_VERSION);
 })
 
