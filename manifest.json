@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "OSChina Block",
     "version": "0.1.1",
-    "description": "Block who you don't want to see in oschina.net",
+    "description": "Block who you don't want to see on oschina.net",
     "icons": {
         "16": "images/icon16.png",
         "48": "images/icon48.png",
@@ -13,8 +13,7 @@
     },
     "permissions": [
         "*://*.oschina.net/*",
-        "storage",
-        "tabs"
+        "storage"
     ],
     "content_scripts": [
         {

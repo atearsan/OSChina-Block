@@ -109,14 +109,28 @@ $(function(){
 	function handleQuestion(blockIdList) {
 		var blockUserIdString = "_" + blockIdList.join("_") + "_";
 		if (blockIdList.length > 0) {
+			var _userId = $(".main .Content .Asker .ainfo img").attr("user");
+			if (_userId != "" && /^\d+$/.test(_userId) && blockUserIdString.indexOf("_" + _userId + "_") != -1) {
+				location.href="123_456";
+			}
+
 			$(".QuestionReplies li.Answer").each(function(index, el){
 				var _userId = $(el).find(".user .user_img img.SmallPortrait").attr("user");
-				console.log(_userId);
 				if (_userId != "" && blockUserIdString.indexOf("_" + _userId + "_") != -1) {
 					$(el).prev().remove();
 					$(el).next().remove();
 					$(el).remove();
 				}
+
+				// comments
+				$(el).find(".replies ul li").each(function(index, el2){
+					var _href = $(el2).find("span.opts a").attr("href");
+					var _userId = _href.substring(_href.indexOf(",") + 1, _href.indexOf(")"));
+
+					if (_userId != "" && /^\d+$/.test(_userId) && blockUserIdString.indexOf("_" + _userId + "_") != -1) {
+						$(el2).remove();
+					}
+				})
 			});
 		}
 	}
