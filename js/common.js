@@ -14,6 +14,8 @@ var OSCB_STORAGE_KEY_SWITCH = "oscb.switch";
 
 var OSCB_STORAGE_KEY_BLOCK_LIST = "oscb.block.list";
 
+var CHROME_EXTENSION_PREFIX = "https://chrome.google.com/webstore/detail/"
+
 function block(id, name, callback) {
 	var item = [id, name, new Date().getTime()];
 	callback = callback || function(){};

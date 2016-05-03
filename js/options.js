@@ -22,12 +22,14 @@ $(function(){
 	})
 
 	$("#clear-btn").on("click", function() {
-		if (blockList.length > 0 && confirm("清空列表【" + blockList.length + "】条记录？")) {
+		if (blockList.length > 0 && confirm("清空列表，共【" + blockList.length + "】条记录？")) {
 			clear(init);
 		}
 	})
 
 	function init() {
+		var _chromeExtensionUrl = CHROME_EXTENSION_PREFIX + chrome.runtime.id;
+		$("#chrome-webstore-a").html(_chromeExtensionUrl).attr("href", _chromeExtensionUrl);
 		list(function(_blockList){
 			blockList = _blockList;
 			render();	
